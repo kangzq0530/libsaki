@@ -37,8 +37,15 @@ void Yui::onDraw(const Table &table, Mount &mount, Who who, bool rinshan)
     if (who != mSelf || rinshan)
         return;
 
-    // TODO implement
-    (void) table; (void) mount;
+    const Hand &hand = table.getHand(who);
+    if (hand.barks().size() > 0)
+        return;
+
+    const int turn = table.getRiver(mSelf).size();
+    const int s7 = hand.step7();
+
+    if (turn >= 6 && s7 <= 2)
+        accelerate(mount, hand, table.getRiver(mSelf), 200);
 }
 
 

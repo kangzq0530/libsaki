@@ -33,6 +33,7 @@ class Yui : public Girl
 public:
     GIRL_CTORS(Yui)
     void onDraw(const Table &table, Mount &mount, Who who, bool rinshan) override;
+
 };
 
 
